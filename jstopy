@@ -1,0 +1,9 @@
+import json
+x='[{"name": "ram", "rollno": 1, "mathmarks": 82, "chmarks": 76, "phymarks": 91}, {"name": "ravan", "rollno": 2, "mathmarks": 90, "chmarks": 95, "phymarks": 90}, {"name": "bheem", "rollno": 3, "mathmarks": 46, "chmarks": 32, "phymarks": 99}]'
+y=json.loads(x)
+print(y[0].get("mathmarks"))
+
+
+
+
+

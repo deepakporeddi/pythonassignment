@@ -1,0 +1,58 @@
+import json
+ds=[]
+for i in range(1):
+    d={}
+    d['name']=input("enter student name:")
+    d['rollno']=int(input("enter rollno:"))
+    d['mathmarks']=int(input("enter mathmarks:"))
+    d['chmarks']=int(input("enter chemistry marks:"))
+    d['phymarks']=int(input("enter physics marks:"))
+    ds.append(d)
+for i in range(1):
+    print(ds[i])
+x=json.dumps(ds)
+print(x)
+
+[{"name": "d", "rollno": 1, "mathmarks": 40, "chmarks": 50, "phymarks": 60}]
+
+
+
+
+
+------------------------------------------------------------
+import json
+x='[{"name": "ram", "rollno": 1, "mathmarks": 60, "chmarks": 54, "phymarks": 61}, {"name": "ravan", "rollno": 2, "mathmarks": 64, "chmarks": 72, "phymarks": 58}, {"name": "bheem", "rollno": 3, "mathmarks": 66, "chmarks": 82, "phymarks": 76}]'
+y=json.loads(x)
+avg=[]
+total=[]
+c=0
+mtot,ctot,ptot,tot=0,0,0,0
+for i in range(len(y)):
+    mtot+=y[i].get('mathmarks')
+    ctot+=y[i].get('chmarks')
+    ptot+=y[i].get('phymarks')
+
+tot+=mtot+ctot+ptot
+avg.append(mtot//3)
+avg.append(ctot//3)
+avg.append(ptot//3)
+print("avg marks in each subject",avg)
+print("avg total marks",tot//3)
+for i in range(len(y)):
+    mto=y[i].get('mathmarks')
+    cto=y[i].get('chmarks')
+    pto=y[i].get('phymarks')
+    total.append(mto+cto+pto)
+    if mto>avg[0] and pto<avg[2]:
+        c++
+print(total)
+for i in range(len(total)):
+    if total[i]>tot//3:
+        print(y[i].get('name'))
+for i in range(len(total)):
+    if total[i]>0.1*(tot//3)+tot//3:
+        print("students scored 10%above avg totmarks",y[i].get('name'))
+    elif total[i]>=(tot//3)-0.1*(tot//3):
+        print("students scored 10% below avg totmarks",y[i].get('name'))
+
+
