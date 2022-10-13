@@ -7,7 +7,7 @@ avg=[]
 total=[]
 c=0
 mtot,ctot,ptot,tot=0,0,0,0
-#--------------------------------------------------------------
+#----------------sort according to names----------------------------------------------
 det={}
 for i in range(len(y)):
     det[y[i].get('name')]=y[i]
@@ -44,3 +44,13 @@ for i in range(len(total)):
     elif total[i]>=(tot//3)-0.1*(tot//3):
         print("students scored 10% below avg totmarks:",y[i].get('name'))
 print("Number of students who scored above average in all the 3 subjects:",c)
+#-------------sorting based on ranks--------------------------------------------------
+ds={}
+for i in range(len(total)):
+    ds[total[i]]=y[i].get('name')
+ranks=dict(sorted(ds.items()))
+print('rank of students based on total marks')
+k=1
+for i,j in ranks.items():
+    print(k,":",j)
+    k=k+1
